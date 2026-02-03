@@ -1,0 +1,50 @@
+/* ========================================
+   GLOBAL OVERRIDE - REMOVE BOXY STYLING
+   ======================================== */
+
+/* Remove backgrounds and borders from all card-like elements */
+.skill-card,
+.tool-card,
+.cert-card,
+.cert-badge,
+.platform-card,
+.research-card,
+.academic-card,
+.project-card,
+.client-card,
+.achievement-card,
+.info-card,
+.value-card,
+.timeline-item,
+.feature-card,
+.stat-card {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.skill-card:hover,
+.tool-card:hover,
+.cert-card:hover,
+.cert-badge:hover,
+.platform-card:hover,
+.research-card:hover,
+.academic-card:hover,
+.project-card:hover,
+.client-card:hover,
+.achievement-card:hover,
+.info-card:hover,
+.value-card:hover,
+.timeline-item:hover,
+.feature-card:hover,
+.stat-card:hover {
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+/* Remove top borders from platform cards */
+.platform-card::before,
+.project-card::before {
+    display: none !important;
+}

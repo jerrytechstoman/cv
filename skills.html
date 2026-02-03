@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Technical skills and expertise of Awni Alasaad - Full-Stack Development and Cybersecurity">
+    <title>Skills | Awni Alasaad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="no-boxes.css">
+    <style>
+        /* Hero Section */
+        .skills-hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .skills-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .skills-hero p {
+            font-size: 1.3rem;
+            color: var(--fg-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Skills Category */
+        .skills-category {
+            padding: 3rem 0;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--fg-primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-base);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 40px rgba(74, 222, 128, 0.25);
+        }
+
+        .skill-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-level {
+            font-size: 0.85rem;
+            color: var(--accent-teal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+            border-radius: 10px;
+            transition: width 1s ease-out;
+            width: 0;
+        }
+
+        .skill-card.animate .skill-bar {
+            width: var(--skill-level);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tool-card {
+            padding: 2rem 1rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .tool-card:hover {
+            background: rgba(74, 222, 128, 0.1);
+            border-color: var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .tool-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--fg-primary);
+        }
+
+        /* Certifications Highlight */
+        .cert-highlight {
+            padding: 4rem 0;
+        }
+
+        .cert-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            transition: all var(--transition-base);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 20px 50px rgba(74, 222, 128, 0.2);
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem;
+        }
+
+        .cert-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cert-platform {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-description {
+            color: var(--fg-secondary);
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .skills-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Awni Alasaad</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="skills.html" class="nav-link active">Skills</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Hero Section -->
+        <section class="skills-hero">
+            <div class="container">
+                <h1>Technical Skills</h1>
+                <p>
+                    A comprehensive toolkit spanning web development, cybersecurity, and system administration
+                </p>
+            </div>
+        </section>
+
+        <!-- Web Development Skills -->
+        <section class="skills-category">
+            <div class="container">
+                <div class="category-header">
+                    <span class="category-icon">WEB</span>
+                    <h2 class="category-title">Web Development</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3 class="skill-name">HTML</h3>
+                        <p class="skill-level">Expert</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">CSS</h3>
+                        <p class="skill-level">Expert</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">JavaScript</h3>
+                        <p class="skill-level">Advanced</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">PHP</h3>
+                        <p class="skill-level">Advanced</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">SQL</h3>
+                        <p class="skill-level">Advanced</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">Python</h3>
+                        <p class="skill-level">Advanced</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cybersecurity Skills -->
+        <section class="skills-category" style="background: rgba(0, 0, 0, 0.2); padding: 4rem 0;">
+            <div class="container">
+                <div class="category-header">
+                    <span class="category-icon">SEC</span>
+                    <h2 class="category-title">Cybersecurity</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3 class="skill-name">Red Teaming</h3>
+                        <p class="skill-level">Advanced</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">Web Security</h3>
+                        <p class="skill-level">Expert</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 92%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">Blue Teaming</h3>
+                        <p class="skill-level">Advanced</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-name">Network Analysis</h3>
+                        <p class="skill-level">Advanced</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="--skill-level: 83%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Platforms -->
+        <section class="tools-section">
+            <div class="container">
+                <h2 class="section-title text-center">Tools & Platforms</h2>
+                <p class="section-subtitle text-center" style="margin: 0 auto;">
+                    Technologies and platforms I work with
+                </p>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon"><img src="images/linux.png" alt="Linux"></div>
+                        <p class="tool-name">Linux</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><img src="images/github.png" alt="Git"></div>
+                        <p class="tool-name">Git</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><img src="images/docker.png" alt="Docker"></div>
+                        <p class="tool-name">Docker</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><img src="images/burp.png" alt="Burp Suite"></div>
+                        <p class="tool-name">Burp Suite</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><img src="images/wireshark.png" alt="Wireshark"></div>
+                        <p class="tool-name">Wireshark</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><img src="images/metasploit.png" alt="Metasploit"></div>
+                        <p class="tool-name">Metasploit</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><img src="images/nmap.png" alt="Nmap"></div>
+                        <p class="tool-name">Nmap</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Platforms -->
+        <section class="cert-highlight">
+            <div class="container">
+                <h2 class="section-title text-center">Training Platforms</h2>
+                <p class="section-subtitle text-center" style="margin: 0 auto;">
+                    Continuous learning through hands-on practice
+                </p>
+
+                <div class="cert-cards">
+                    <div class="cert-card">
+                        <div class="cert-icon"><img src="images/portswigger.png" alt="PortSwigger"></div>
+                        <h3 class="cert-platform">PortSwigger</h3>
+                        <p class="cert-description">
+                            Advanced web security training with lab exercises focusing on OWASP Top 10 vulnerabilities
+                            and cutting-edge attack techniques.
+                        </p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><img src="images/HTB.png" alt="Hack The Box"></div>
+                        <h3 class="cert-platform">Hack The Box</h3>
+                        <p class="cert-description">
+                            Hands-on penetration testing practice with real-world scenarios, system exploitation, and
+                            offensive security techniques.
+                        </p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><img src="images/THM.png" alt="TryHackMe"></div>
+                        <h3 class="cert-platform">TryHackMe</h3>
+                        <p class="cert-description">
+                            Interactive cybersecurity challenges covering network security, privilege escalation, and
+                            comprehensive security research.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-section">
+                <h3>Awni Alasaad</h3>
+                <p style="color: var(--fg-secondary); margin-top: 1rem; line-height: 1.6;">
+                    Full-Stack Developer & Cybersecurity Researcher focused on building secure, innovative solutions.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:dtffcf1@gmail.com" class="social-link" aria-label="Email">@</a>
+                    <a href="tel:0779000403" class="social-link" aria-label="Phone">#</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="skills.html" class="footer-link">Skills</a></li>
+                    <li><a href="experience.html" class="footer-link">Experience</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>More</h3>
+                <ul class="footer-links">
+                    <li><a href="education.html" class="footer-link">Education</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Awni Alasaad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Parallax effect for orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.orb');
+            const mouseX = (window.innerWidth / 2 - e.clientX) / 50;
+            const mouseY = (window.innerHeight / 2 - e.clientY) / 50;
+
+            orbs.forEach((orb, index) => {
+                const factor = (index + 1) * 15;
+                orb.style.transform = `translate(${mouseX * factor}px, ${mouseY * factor}px)`;
+            });
+        });
+
+        // Animate skill bars on scroll
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.skill-card').forEach(card => {
+            skillObserver.observe(card);
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.tool-card, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

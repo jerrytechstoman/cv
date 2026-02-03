@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional experience and projects of Awni Alasaad">
+    <title>Experience | Awni Alasaad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="no-boxes.css">
+    <style>
+        /* Hero Section */
+        .experience-hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .experience-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .experience-hero p {
+            font-size: 1.3rem;
+            color: var(--fg-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Project Cards */
+        .projects-section {
+            padding: 3rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+            box-shadow: 0 25px 60px rgba(74, 222, 128, 0.3);
+        }
+
+        .project-header {
+            padding: 2.5rem 2rem 1.5rem;
+        }
+
+        .project-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(74, 222, 128, 0.3);
+        }
+
+        .project-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-category {
+            font-size: 0.85rem;
+            color: var(--accent-teal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-body {
+            padding: 0 2rem 2rem;
+            flex-grow: 1;
+        }
+
+        .project-description {
+            color: var(--fg-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-tag {
+            padding: 0.4rem 0.9rem;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        /* Clients Section */
+        .clients-section {
+            padding: 5rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .client-card {
+            padding: 2.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .client-card:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 40px rgba(74, 222, 128, 0.25);
+        }
+
+        .client-logo {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .client-work {
+            color: var(--fg-secondary);
+            line-height: 1.6;
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            padding: 5rem 0;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .achievement-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 20px 50px rgba(74, 222, 128, 0.2);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            margin-bottom: 1rem;
+        }
+
+        .achievement-description {
+            color: var(--fg-secondary);
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .experience-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Awni Alasaad</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="experience.html" class="nav-link active">Experience</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Hero Section -->
+        <section class="experience-hero">
+            <div class="container">
+                <h1>Experience & Projects</h1>
+                <p>
+                    Building secure, high-performance solutions for enterprises and research initiatives
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Showcasing technical expertise through real-world applications
+                </p>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">SEC</div>
+                            <h3 class="project-title">Security Hardening</h3>
+                            <p class="project-category">Web Security</p>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Implemented comprehensive security measures for enterprise web applications, including
+                                vulnerability assessments, penetration testing, and security architecture reviews.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">OWASP</span>
+                                <span class="project-tag">Penetration Testing</span>
+                                <span class="project-tag">Security Audit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">WEB</div>
+                            <h3 class="project-title">Enterprise Deployments</h3>
+                            <p class="project-category">Full-Stack Development</p>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Developed and deployed high-performance web applications for major clients, ensuring
+                                scalability, security, and optimal user experience across platforms.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">SQL</span>
+                                <span class="project-tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">SOC</div>
+                            <h3 class="project-title">SOC Analysis</h3>
+                            <p class="project-category">Security Operations</p>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Conducted security operations center analysis, threat detection, and incident response
+                                for critical infrastructure and enterprise systems.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Threat Detection</span>
+                                <span class="project-tag">Incident Response</span>
+                                <span class="project-tag">SIEM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">RES</div>
+                            <h3 class="project-title">Vulnerability Research</h3>
+                            <p class="project-category">Offensive Security</p>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Leading cybersecurity research initiative focused on discovering and documenting
+                                vulnerabilities, developing exploits, and improving defensive strategies.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Research</span>
+                                <span class="project-tag">Exploit Development</span>
+                                <span class="project-tag">CVE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clients Section -->
+        <section class="clients-section">
+            <div class="container">
+                <h2 class="section-title text-center">Clients & Partners</h2>
+                <p class="section-subtitle text-center" style="margin: 0 auto;">
+                    Trusted by industry leaders and enterprises
+                </p>
+
+                <div class="clients-grid">
+                    <div class="client-card">
+                        <div class="client-logo">FLY</div>
+                        <h3 class="client-name">Flynas</h3>
+                        <p class="client-work">
+                            Advanced security assessments and web application deployment for a leading aviation company
+                        </p>
+                    </div>
+
+                    <div class="client-card">
+                        <div class="client-logo">ENT</div>
+                        <h3 class="client-name">Enterprise Clients</h3>
+                        <p class="client-work">
+                            Security hardening and full-stack development for various enterprise organizations
+                        </p>
+                    </div>
+
+                    <div class="client-card">
+                        <div class="client-logo">LAB</div>
+                        <h3 class="client-name">Research Institutions</h3>
+                        <p class="client-work">
+                            Cybersecurity research collaboration and vulnerability assessment initiatives
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="achievements-section">
+            <div class="container">
+                <h2 class="section-title text-center">Achievements</h2>
+                <p class="section-subtitle text-center" style="margin: 0 auto;">
+                    Milestones in security research and development
+                </p>
+
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">★</div>
+                        <h3 class="achievement-title">Security Research Initiative</h3>
+                        <p class="achievement-description">
+                            Founded and lead a cybersecurity research initiative focused on advanced vulnerability
+                            assessment and offensive security research
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">■</div>
+                        <h3 class="achievement-title">Multi-Platform Certifications</h3>
+                        <p class="achievement-description">
+                            Certified across PortSwigger, Hack The Box, and TryHackMe platforms with focus on web
+                            security and penetration testing
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">●</div>
+                        <h3 class="achievement-title">Multilingual Professional</h3>
+                        <p class="achievement-description">
+                            Fluent in 5 languages enabling effective communication across diverse international teams
+                            and clients
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-section">
+                <h3>Awni Alasaad</h3>
+                <p style="color: var(--fg-secondary); margin-top: 1rem; line-height: 1.6;">
+                    Full-Stack Developer & Cybersecurity Researcher focused on building secure, innovative solutions.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:dtffcf1@gmail.com" class="social-link" aria-label="Email">@</a>
+                    <a href="tel:0779000403" class="social-link" aria-label="Phone">#</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="skills.html" class="footer-link">Skills</a></li>
+                    <li><a href="experience.html" class="footer-link">Experience</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>More</h3>
+                <ul class="footer-links">
+                    <li><a href="education.html" class="footer-link">Education</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Awni Alasaad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Parallax effect for orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.orb');
+            const mouseX = (window.innerWidth / 2 - e.clientX) / 50;
+            const mouseY = (window.innerHeight / 2 - e.clientY) / 50;
+
+            orbs.forEach((orb, index) => {
+                const factor = (index + 1) * 15;
+                orb.style.transform = `translate(${mouseX * factor}px, ${mouseY * factor}px)`;
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card, .client-card, .achievement-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+services:
+  cv-site:
+    build: .
+    container_name: awni_cv_container
+    ports:
+      - "8012:80"
+    volumes:
+      - .:/usr/share/nginx/html
+    restart: always

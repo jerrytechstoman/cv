@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Get in touch with Awni Alasaad for cybersecurity consulting and web development projects">
+    <title>Contact | Awni Alasaad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="no-boxes.css">
+    <style>
+        /* Hero Section */
+        .contact-hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .contact-hero p {
+            font-size: 1.3rem;
+            color: var(--fg-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 3rem 0 5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            transition: all var(--transition-base);
+        }
+
+        .info-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 40px rgba(74, 222, 128, 0.2);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-text {
+            color: var(--fg-secondary);
+            line-height: 1.6;
+        }
+
+        .info-text a {
+            color: var(--accent-teal);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .info-text a:hover {
+            color: var(--accent-green);
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--accent-green);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            margin-top: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--fg-primary);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: var(--border-radius-sm);
+            color: var(--fg-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all var(--transition-base);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            background: rgba(74, 222, 128, 0.05);
+            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            color: var(--bg-primary);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+        }
+
+        .form-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(74, 222, 128, 0.5);
+        }
+
+        .form-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Social Links Section */
+        .social-section {
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all var(--transition-base);
+            text-decoration: none;
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-green);
+            box-shadow: 0 20px 50px rgba(74, 222, 128, 0.3);
+        }
+
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-green);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Awni Alasaad</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Let's Connect</h1>
+                <p>
+                    Ready to collaborate on building secure, high-performance solutions
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <div class="info-icon">@</div>
+                            <h3 class="info-title">Email</h3>
+                            <p class="info-text">
+                                <a href="mailto:dtffcf1@gmail.com">dtffcf1@gmail.com</a>
+                            </p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">#</div>
+                            <h3 class="info-title">Phone</h3>
+                            <p class="info-text">
+                                <a href="tel:0779000403">0779000403</a>
+                            </p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">◆</div>
+                            <h3 class="info-title">Availability</h3>
+                            <p class="info-text">
+                                Currently available for new projects and collaborations
+                            </p>
+                            <span class="availability-badge">
+                                <span class="status-dot"></span>
+                                Available Now
+                            </span>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">●</div>
+                            <h3 class="info-title">Languages</h3>
+                            <p class="info-text">
+                                Fluent in Arabic, English, Spanish, Russian, and French
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div>
+                        <div class="success-message" id="successMessage">
+                            Thank you for your message! I'll get back to you soon.
+                        </div>
+
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Your Name</label>
+                                <input type="text" id="name" name="name" class="form-input" required
+                                    placeholder="John Doe">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input" required
+                                    placeholder="john@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-input" required
+                                    placeholder="Project Inquiry">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="message">Message</label>
+                                <textarea id="message" name="message" class="form-textarea" required
+                                    placeholder="Tell me about your project..."></textarea>
+                            </div>
+
+                            <button type="submit" class="form-button">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Section -->
+        <section class="social-section">
+            <div class="container">
+                <h2 class="section-title text-center">Connect With Me</h2>
+                <p class="section-subtitle text-center" style="margin: 0 auto;">
+                    Find me on your preferred platform
+                </p>
+
+                <div class="social-grid">
+                    <a href="mailto:dtffcf1@gmail.com" class="social-card">
+                        <div class="social-icon">@</div>
+                        <p class="social-name">Email</p>
+                    </a>
+
+                    <a href="tel:0779000403" class="social-card">
+                        <div class="social-icon">#</div>
+                        <p class="social-name">Phone</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-section">
+                <h3>Awni Alasaad</h3>
+                <p style="color: var(--fg-secondary); margin-top: 1rem; line-height: 1.6;">
+                    Full-Stack Developer & Cybersecurity Researcher focused on building secure, innovative solutions.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:dtffcf1@gmail.com" class="social-link" aria-label="Email">@</a>
+                    <a href="tel:0779000403" class="social-link" aria-label="Phone">#</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="skills.html" class="footer-link">Skills</a></li>
+                    <li><a href="experience.html" class="footer-link">Experience</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>More</h3>
+                <ul class="footer-links">
+                    <li><a href="education.html" class="footer-link">Education</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Awni Alasaad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Parallax effect for orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.orb');
+            const mouseX = (window.innerWidth / 2 - e.clientX) / 50;
+            const mouseY = (window.innerHeight / 2 - e.clientY) / 50;
+
+            orbs.forEach((orb, index) => {
+                const factor = (index + 1) * 15;
+                orb.style.transform = `translate(${mouseX * factor}px, ${mouseY * factor}px)`;
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Show success message
+            successMessage.classList.add('show');
+
+            // Reset form
+            contactForm.reset();
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+
+            // In a real application, you would send the form data to a backend server here
+            // Example:
+            // fetch('/api/contact', {
+            //   method: 'POST',
+            //   body: new FormData(contactForm)
+            // });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.info-card, .social-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

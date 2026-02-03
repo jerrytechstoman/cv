@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn more about Awni Alasaad - BTEC IT Student, Full-Stack Developer, and Cybersecurity Researcher">
+  <title>About | Awni Alasaad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="no-boxes.css">
+  <style>
+    /* Profile Section */
+    .profile-section {
+      padding: 8rem 0 4rem;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .profile-image-container {
+      position: relative;
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--border-radius-xl);
+      border: 3px solid var(--accent-green);
+      box-shadow: 0 20px 60px rgba(74, 222, 128, 0.3);
+      transition: all var(--transition-base);
+    }
+
+    .profile-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 30px 80px rgba(74, 222, 128, 0.4);
+    }
+
+    .profile-content h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 40%, var(--accent-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.03em;
+    }
+
+    .profile-subtitle {
+      font-size: 1.5rem;
+      color: var(--accent-teal);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .profile-description {
+      color: var(--fg-secondary);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-box {
+      padding: 1.5rem;
+      background: rgba(74, 222, 128, 0.05);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      border-radius: var(--border-radius-md);
+      text-align: center;
+    }
+
+    .stat-box-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-box-label {
+      color: var(--fg-secondary);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Journey Section */
+    .journey-section {
+      padding: 4rem 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-green), var(--accent-teal));
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .timeline-item:nth-child(odd) {
+      justify-content: flex-start;
+    }
+
+    .timeline-item:nth-child(even) {
+      justify-content: flex-end;
+    }
+
+    .timeline-content {
+      width: 45%;
+      background: var(--bg-card);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(74, 222, 128, 0.15);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      transition: all var(--transition-base);
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      text-align: right;
+    }
+
+    .timeline-content:hover {
+      transform: scale(1.03);
+      border-color: var(--accent-green);
+      box-shadow: 0 10px 30px rgba(74, 222, 128, 0.2);
+    }
+
+    .timeline-year {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--fg-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-description {
+      color: var(--fg-secondary);
+      line-height: 1.7;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background: var(--accent-green);
+      border: 4px solid var(--bg-primary);
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 5rem 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      padding: 2.5rem;
+      background: var(--bg-card);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(74, 222, 128, 0.15);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-green);
+      box-shadow: 0 20px 50px rgba(74, 222, 128, 0.2);
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .value-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--fg-primary);
+      margin-bottom: 1rem;
+    }
+
+    .value-description {
+      color: var(--fg-secondary);
+      line-height: 1.7;
+    }
+
+    /* Languages Section */
+    .languages-section {
+      padding: 4rem 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .language-card {
+      padding: 2rem 1.5rem;
+      background: var(--bg-card);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(74, 222, 128, 0.15);
+      border-radius: var(--border-radius-md);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+
+    .language-card:hover {
+      background: rgba(74, 222, 128, 0.1);
+      border-color: var(--accent-green);
+      transform: translateY(-5px);
+    }
+
+    .language-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-teal);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-image {
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        left: 0;
+      }
+
+      .timeline-item {
+        justify-content: flex-start !important;
+      }
+
+      .timeline-content {
+        width: calc(100% - 40px);
+        margin-left: 40px;
+        text-align: left !important;
+      }
+
+      .timeline-dot {
+        left: 0;
+        transform: translateX(-50%);
+      }
+
+      .profile-content h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .profile-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Awni Alasaad</a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+        <li><a href="education.html" class="nav-link">Education</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Container -->
+  <div class="page-container">
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="container">
+        <div class="profile-grid">
+          <div class="profile-image-container">
+            <img src="images/image.png" alt="Awni Alasaad" class="profile-image">
+          </div>
+
+          <div class="profile-content">
+            <h1>About Me</h1>
+            <p class="profile-subtitle">Full-Stack Developer & Cybersecurity Researcher</p>
+            <p class="profile-description">
+              I'm a <strong>BTEC IT Level 3 Student</strong> with a passion for bridging high-performance
+              web development and elite security architecture. As the founder of a cybersecurity research
+              initiative, I focus on vulnerability assessment and building secure, innovative solutions.
+            </p>
+            <p class="profile-description">
+              My journey combines technical excellence with continuous learning, specializing in offensive
+              security research while creating robust web applications that stand up to modern security
+              challenges.
+            </p>
+
+            <div class="profile-stats">
+              <div class="stat-box">
+                <span class="stat-box-number">5+</span>
+                <span class="stat-box-label">Languages Spoken</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-box-number">6+</span>
+                <span class="stat-box-label">Tech Stack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section class="journey-section">
+      <div class="container">
+        <h2 class="section-title text-center">My Journey</h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          From student to security researcher and developer
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">Present</div>
+              <h3 class="timeline-title">Cybersecurity Research Initiative</h3>
+              <p class="timeline-description">
+                Founded and leading a cybersecurity research initiative focused on advanced
+                vulnerability assessment and offensive security research.
+              </p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">Ongoing</div>
+              <h3 class="timeline-title">Enterprise Security Consulting</h3>
+              <p class="timeline-description">
+                Conducting advanced security assessments and web deployments for industry leaders like
+                Flynas and other enterprises.
+              </p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">Current</div>
+              <h3 class="timeline-title">BTEC IT Level 3</h3>
+              <p class="timeline-description">
+                Pursuing advanced technical education while gaining practical experience in development
+                and security research.
+              </p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">Foundation</div>
+              <h3 class="timeline-title">Started Learning</h3>
+              <p class="timeline-description">
+                Began the journey in web development and cybersecurity, building foundational skills
+                across multiple platforms and languages.
+              </p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+      <div class="container">
+        <h2 class="section-title text-center">Core Values</h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          Principles that guide my work and approach
+        </p>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">★</div>
+            <h3 class="value-title">Excellence</h3>
+            <p class="value-description">
+              Committed to delivering high-quality work that exceeds expectations and sets new standards.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">◆</div>
+            <h3 class="value-title">Security First</h3>
+            <p class="value-description">
+              Building with security at the core, ensuring robust protection against emerging threats.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">■</div>
+            <h3 class="value-title">Continuous Learning</h3>
+            <p class="value-description">
+              Constantly evolving through research, practice, and staying current with technology trends.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">●</div>
+            <h3 class="value-title">Collaboration</h3>
+            <p class="value-description">
+              Working together with clients and teams to create solutions that truly make a difference.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages-section">
+      <div class="container">
+        <h2 class="section-title text-center">Multilingual</h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          Communication across cultures and borders
+        </p>
+
+        <div class="languages-grid">
+          <div class="language-card">
+            <p class="language-name">Arabic</p>
+          </div>
+          <div class="language-card">
+            <p class="language-name">English</p>
+          </div>
+          <div class="language-card">
+            <p class="language-name">Spanish</p>
+          </div>
+          <div class="language-card">
+            <p class="language-name">Russian</p>
+          </div>
+          <div class="language-card">
+            <p class="language-name">French</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container container">
+      <div class="footer-section">
+        <h3>Awni Alasaad</h3>
+        <p style="color: var(--fg-secondary); margin-top: 1rem; line-height: 1.6;">
+          Full-Stack Developer & Cybersecurity Researcher focused on building secure, innovative solutions.
+        </p>
+        <div class="social-links">
+          <a href="mailto:dtffcf1@gmail.com" class="social-link" aria-label="Email">@</a>
+          <a href="tel:0779000403" class="social-link" aria-label="Phone">#</a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="skills.html" class="footer-link">Skills</a></li>
+          <li><a href="experience.html" class="footer-link">Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>More</h3>
+        <ul class="footer-links">
+          <li><a href="education.html" class="footer-link">Education</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Awni Alasaad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Parallax effect for orbs
+    document.addEventListener('mousemove', (e) => {
+      const orbs = document.querySelectorAll('.orb');
+      const mouseX = (window.innerWidth / 2 - e.clientX) / 50;
+      const mouseY = (window.innerHeight / 2 - e.clientY) / 50;
+
+      orbs.forEach((orb, index) => {
+        const factor = (index + 1) * 15;
+        orb.style.transform = `translate(${mouseX * factor}px, ${mouseY * factor}px)`;
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.timeline-content, .value-card, .language-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>
